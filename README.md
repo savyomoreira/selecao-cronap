@@ -11,6 +11,10 @@ tecnologias ultilizadas:
   Frontend:
     AngularJS;
     Bootstrap;
+   
+  IDE:
+    IntelliJ IDEA;
+    
     
   Banco de Dados:
     H2

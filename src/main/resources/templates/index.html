@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html  ng-app="crudPessoaApp">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>${title}</title>
+        <!--<link href="css/bootstrap.css" rel="stylesheet"/>-->
+        <link href="css/app.css" rel="stylesheet"/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+
+        <!--<div ui-view></div>-->
+        <div ng-controller="CadastroPessoaController">
+            <!--{{teste}}-->
+
+            <div class="container">
+                <h2>CRUD Pessoa</h2>
+                <p>Code Challenger Cronapp:</p>
+
+                <div class="row">
+                    <div class="form-group" >
+                        <div class="col-md-6">
+                            <label>Nome:</label>
+                            <input name="Nome"  class="form-control"
+                                   ng-model="pessoa.nome" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>CPF/CNPS:</label>
+                            <input name="cpfcnpj" class="form-control"
+                                   ng-model="pessoa.cpfCnpj" />
+                        </div>
+                        <div class="col-md-6">
+                            <label>Tipo Pessoa:</label>
+                            <select name="singleSelect" class="form-control"
+                                    ng-model="pessoa.tipoPessoaEnum">
+                                <option value="PESSOA_FISICA">Pessoa física</option>
+                                <option value="PESSOA_JURIDICA">Pessoa jurídica</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Data Nascimenco:</label>
+                            <input type="date" name="datanascimento" class="form-control"
+                                   ng-model="pessoa.dataNascimento" />
+                        </div>
+                        <div class="col-md-2">
+                            <label>&nbsp;</label>
+                            <button ng-click="save()" class="form-control btn btn-primary">
+                                Salvar
+                            </button>
+                        </div>
+
+                    </div>
+
+            </div>
+                <table style="margin-top:20px" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data Nascimento</th>
+                        <th>Tipo</th>
+                        <th>CPF/CNPJ</th>
+                        <th>Ação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="pessoa in pessoas">
+                        <td>{{pessoa.nome}}</td>
+                        <td>{{pessoa.dataNascimento | date:'dd/MM/yyyy'}}</td>
+                        <td>{{pessoa.tipoPessoaEnum}}</td>
+                        <td>{{pessoa.cpfCnpj}}</td>
+                        <td>
+                            <a ng-click="removerPessoa(pessoa.id)" class="btn btn-default btn-xs">
+                                <span class="glyphicon">&#xe020;</span>
+                            </a>
+                            <a class="btn btn-default btn-xs" ng-click="loadToUpdate(pessoa)">
+                                <span class="glyphicon">&#x270f;</span>
+                            </a>
+
+
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <script src="/js/lib/angular.min.js" ></script>
+        <script src="/js/lib/angular-ui-router.min.js" ></script>
+        <script src="/js/lib/localforage.min.js" ></script>
+        <script src="/js/lib/ngStorage.min.js"></script>
+        <script src="/js/app/app.js"></script>
+        <script src="/js/app/controllers/CadastroPessoaController.js"></script>
+
+    </body>
+</html>

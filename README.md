@@ -16,6 +16,6 @@ tecnologias ultilizadas:
     H2
     
         
-OBS: a aplicação responde a requisiçoes feitas a porta 8080.: ex http://localhost:8080/
+OBS: a aplicação foi configuradapara responder a requisiçoes feitas a porta 8080.: ex http://localhost:8080/
 
 
